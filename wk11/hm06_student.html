@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm06 : Javascript object</title>
+    <style></style>
+    <script>
+      //리터럴 표기법(json)으로 사용자 객체 만들기
+      var account = {
+        // 프로퍼티 생성 및 초기화
+        owner: "hm06", // 계좌 주인
+        code: "농협 365-1354-6883-13", // 계좌 코드
+        balance: 66900, // 잔액 프로퍼티
+
+        // 메소드 작성
+        inquiry: function () {
+          return this.balance;
+        }, // 잔금 조회
+        deposit: function (money) {
+          this.balance += money;
+        }, // 저금. money 만큼 저금
+        withdraw: function (money) {
+          // 예금 인출, money는 인출하고자 하는 액수
+          // money가 balance보다 작다고 가정
+          this.balance -= money;
+        },
+      };
+    </script>
+    <script>
+      var student = {
+        name: "ParkJongHyeok",
+        id: "hm06",
+        age: "21",
+        Tel: "010-1234-5678",
+        adress: "Ulsan",
+        email: "gurdl8479@naver.com",
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <h3>student 객체를 리터럴 표기 방식으로 작성하기</h3>
+    <hr />
+    <script>
+      document.write("studnet's name : " + student.name + "<br>");
+      document.write("student's id : " + student.id + "<br>");
+      document.write("student's age : " + student.age + "<br>");
+      document.write("student's Tel : " + student.Tel + "<br>");
+      document.write("student's adress : " + student.adress + "<br>");
+      document.write("student's email : " + student.email + "<br><hr>");
+    </script>
+    <script>
+      var now = new Date();
+
+      document.write("현재 시간은 ");
+      document.write(now.getFullYear() + "년 ");
+      document.write(now.getMonth() + "월 ");
+      document.write(now.getDate() + "일 ");
+      document.write(now.getHours(), "시 ");
+      document.write(now.getMinutes(), "분 ");
+      document.write(now.getSeconds(), "초입니다.<br><hr>");
+    </script>
+    <script>
+      document.write("account : ");
+      document.write(account.owner + ", ");
+      document.write(account.code + ", ");
+      document.write(account.balance + "<br>");
+
+      account.deposit(500000);
+      // 50만원 용돈 저금
+      document.write("10000원 저금 후 잔액은 " + account.inquiry() + "<br>");
+      account.withdraw(10000);
+      // 10000 밥값 지불
+      document.write(
+        "10000원 밥값을 지불하고 남은 잔액은 " + account.inquiry() + "<br>"
+      );
+      account.withdraw(21300);
+      document.write(
+        "21300원 전기세를 지불하고 남은 잔액은 " + account.inquiry() + "<br>"
+      );
+    </script>
+  </body>
+</html>
