@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <title>
+      Insert title here
+    </title>
+    <script>
+      function load() {
+        var select = document.getElementById("site");
+        window.location = select.options[select.selectedIndex].value;
+      }
+    </script>
+  </head>
+  <style>
+    #site {
+      font-weight: bold;
+      color: blue;
+      background-color: lightgreen;
+      border-radius: 5px;
+      position: absolute;
+      left: 54%;
+      top: 49%;
+      z-index: 4;
+    }
+    p {
+      position: absolute;
+      left: 54%;
+      top: 51%;
+      z-index: 3;
+    }
+
+    button {
+      border-radius: 10px;
+      font-size: 20;
+      font-weight: bold;
+      color: rgb(230, 255, 9);
+      background-color: lightgreen;
+      z-index: 2;
+    }
+    fieldset1 {
+      padding: 15;
+      font-weight: bold;
+      color: blue;
+      text-align: center;
+      background-color: lightgreen;
+      border-radius: 10px;
+      position: absolute;
+      left: 35%;
+      top: 46%;
+      z-index: 1;
+    }
+    fieldset2 {
+      padding: 15;
+      font-weight: bold;
+      color: blue;
+      text-align: center;
+      background-color: lightsalmon;
+      border-radius: 10px;
+      position: absolute;
+      left: 54%;
+      top: 46%;
+      z-index: 1;
+    }
+    input {
+      border-color: lightgray;
+      border-width: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: black;
+      background-color: white;
+    }
+    h1 {
+      font-size: 40;
+      font-weight: bolder;
+      color: rgb(255, 145, 0);
+      text-align: center;
+
+      border-radius: 10px;
+      position: absolute;
+      left: 39%;
+      top: 15%;
+    }
+    th {
+      color: white;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 25;
+      color: rgb(0, 247, 255);
+      position: absolute;
+      left: 37%;
+      top: 26%;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 21;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 38%;
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 21;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 27%;
+    }
+    h5 {
+      font-weight: bold;
+      font-size: 21;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 46%;
+    }
+    p1 {
+      position: absolute;
+      left: 34%;
+      top: 34%;
+    }
+    p2 {
+      position: absolute;
+      left: 34%;
+      top: 44%;
+    }
+    p3 {
+      position: absolute;
+      left: 34%;
+      top: 54%;
+    }
+  </style>
+  <body>
+    <h1 id="clock">00:00</h1>
+
+    <center>
+      <canvas id="canvas" width="800px" height="800px"> </canvas>
+    </center>
+    <script>
+      var clockTarget = document.getElementById("clock");
+
+      function clock() {
+        var date = new Date();
+
+        // date Object를 받아오고
+        var month = date.getMonth();
+
+        // 달을 받아옵니다
+        var clockDate = date.getDate();
+
+        // 몇일인지 받아옵니다
+        var day = date.getDay();
+
+        // 요일을 받아옵니다.
+        var week = ["일", "월", "화", "수", "목", "금", "토"];
+
+        // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다.
+        var hours = date.getHours();
+
+        // 시간을 받아오고
+        var minutes = date.getMinutes();
+
+        // 분도 받아옵니다.
+        var seconds = date.getSeconds();
+
+        // 초까지 받아온후
+        clockTarget.innerText =
+          `${month + 1}월 ${clockDate}일 ${week[day]}요일` +
+          `${hours < 10 ? `0${hours}` : hours}:${
+            minutes < 10 ? `0${minutes}` : minutes
+          }:${seconds < 10 ? `0${seconds}` : seconds}`;
+
+        // 월은 0부터 1월이기때문에 +1일을 해주고
+
+        // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다.
+      }
+
+      function init() {
+        clock();
+
+        // 최초에 함수를 한번 실행시켜주고
+        setInterval(clock, 1000);
+
+        // setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+        // setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초
+      }
+
+      init();
+    </script>
+    <script>
+      var context = document.getElementById("canvas").getContext("2d");
+      var radius = document.getElementById("canvas").width / 2;
+
+      setInterval(function (context, radius) {
+        makeClockTool(this.context, this.radius);
+        makeNumberTool(this.context, this.radius);
+        makeArrowTool(this.context, this.radius);
+      }, 1000);
+
+      // 1. 시계 틀 만들기
+      function makeClockTool(context, radius) {
+        context.beginPath();
+        context.arc(radius, radius, radius, 0, Math.PI * 2);
+        context.fillStyle = "black";
+        context.fill();
+        context.stroke();
+
+        context.beginPath();
+        context.arc(radius, radius, 10, 0, Math.PI * 2);
+        context.fillStyle = "white";
+        context.fill();
+        context.stroke();
+      }
+
+      // 2. 숫자 집어넣기
+      function makeNumberTool(context, radius) {
+        context.font = 50 + "px Arial";
+        for (var i = 0; i < 12; i++) {
+          var x = 350 * Math.cos((Math.PI * (30 * i)) / 180) + radius - 20;
+          var y = 350 * Math.sin((Math.PI * (30 * i)) / 180) + radius + 20;
+          var number = 0;
+          if (i <= 9) {
+            number = i + 3;
+          } else {
+            number = i - 9;
+          }
+          context.fillText(number.toString(), x, y);
+        }
+      }
+
+      // 3. 시 분 초 침 만들기
+
+      function makeArrowTool(context, radius) {
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+
+        // 초
+        context.beginPath();
+        context.moveTo(radius, radius);
+        context.lineTo(
+          350 * Math.cos((Math.PI * (second * 6 - 90)) / 180) + radius,
+          350 * Math.sin((Math.PI * (second * 6 - 90)) / 180) + radius
+        );
+
+        context.lineWidth = 3;
+        context.strokeStyle = "white";
+        context.stroke();
+        context.lineCap = "round";
+
+        // 분
+        context.beginPath();
+        context.moveTo(radius, radius);
+        context.lineTo(
+          300 *
+            Math.cos((Math.PI * (minute * 6 - 90 + second * (6 / 60))) / 180) +
+            radius,
+          300 *
+            Math.sin((Math.PI * (minute * 6 - 90 + second * (6 / 60))) / 180) +
+            radius
+        );
+        context.lineWidth = 7;
+        context.strokeStyle = "white";
+        context.lineCap = "round";
+        context.stroke();
+
+        // 시
+        context.beginPath();
+        context.moveTo(radius, radius);
+        context.lineTo(
+          200 *
+            Math.cos(
+              (Math.PI * (hour * 30 - 90 + second * (6 / 60 / 60))) / 180
+            ) +
+            radius,
+          200 *
+            Math.sin(
+              (Math.PI * (hour * 30 - 90 + second * (6 / 60 / 60))) / 180
+            ) +
+            radius
+        );
+        context.lineWidth = 15;
+        context.strokeStyle = "white";
+        context.lineCap = "round";
+
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>

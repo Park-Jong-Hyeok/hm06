@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm06</title>
+    <style>
+      html {
+        background-image: url("media/노을.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: whitesmoke;
+        height: 100%;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        float: left;
+      }
+      .wrapper {
+        width: 1170px;
+        margin: 0 auto;
+      }
+      a {
+        color: azure;
+        font-size: 40px;
+      }
+      h1 {
+        line-height: 75px;
+        margin-left: 20px;
+        float: left;
+        font-size: 20px;
+        color: azure;
+      }
+      #menu {
+        float: right;
+      }
+      #menu li {
+        list-style-type: none;
+        padding: 0px 15px;
+        float: left;
+      }
+      #menu li a {
+        display: block;
+        line-height: 75px;
+        color: azure;
+        padding: 0 15px;
+        text-decoration: none;
+        font-size: 25px;
+      }
+
+      section {
+        position: fixed;
+        width: 100%;
+        height: 80%;
+        top: 75px;
+      }
+      footer {
+        position: fixed;
+        width: 100%;
+        height: 4%;
+        bottom: 0;
+        padding-top: 15px;
+        font-size: 25px;
+        text-align: left;
+        background: rgb(248, 200, 168);
+        color: whitesmoke;
+      }
+
+      section span {
+        position: fixed;
+        font-weight: bold;
+        font-size: 35px;
+        top: 150px;
+        left: 10px;
+        color: azure;
+      }
+      #site {
+      font-weight: bold;
+      color: blue;
+      background-color: lightgreen;
+      border-radius: 5px;
+      position: absolute;
+      left: 54%;
+      top: 49%;
+      z-index: 4;
+    }
+    p {
+      position: absolute;
+      left: 54%;
+      top: 51%;
+      z-index: 3;
+    }
+
+    button {
+      border-radius: 10px;
+      font-size: 20;
+      font-weight: bold;
+      color: rgb(230, 255, 9);
+      background-color: lightgreen;
+      z-index: 2;
+    }
+    fieldset1 {
+      padding: 15;
+      font-weight: bold;
+      color: blue;
+      text-align: center;
+      background-color: lightgreen;
+      border-radius: 10px;
+      position: absolute;
+      left: 35%;
+      top: 46%;
+      z-index: 1;
+    }
+    fieldset2 {
+      padding: 15;
+      font-weight: bold;
+      color: blue;
+      text-align: center;
+      background-color: lightsalmon;
+      border-radius: 10px;
+      position: absolute;
+      left: 54%;
+      top: 46%;
+      z-index: 1;
+    }
+    input {
+      border-color: lightgray;
+      border-width: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: black;
+      background-color: white;
+    }
+   
+    th {
+      color: white;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 40px;
+      color: rgb(0, 247, 255);
+      position: absolute;
+      left: 37%;
+      top: 26%;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 50px;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 50%;
+    }
+    h4 {
+      font-weight: bold;
+      font-size: 50px;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 34%;
+    }
+    h5 {
+      font-weight: bold;
+      font-size: 21;
+      color: rgb(115, 255, 0);
+      position: absolute;
+      left: 34%;
+      top: 46%;
+    }
+    p1 {
+      position: fixed;
+      left: 34%;
+      top: 40%;
+    }
+    p2 {
+      position: fixed;
+      left: 34%;
+      top: 54%;
+    }
+  
+    </style>
+    <script></script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <header>
+      <div id="wrapper">
+        <h1>
+          <a href="https://github.com/Park-Jong-Hyeok">HM06 박종혁 </a>☜클릭시
+          Github로 이동
+        </h1>
+        <nav id="menu">
+          <li><a href="rpt03_.html">Home</a></li>
+           <li><a href="나의하루.html">My Daily</a></li>
+           <li><a href="여행가고싶은곳.html">My Best 3</a></li>
+           <li><a href="동호회 소개.html">FootBall Club</a></li>
+           <li><a href="hm06_tree.html">Christmas</a></li>
+           <li><a href="코로나.html">코로나 관련</a></li>
+           <li><a href="시계.html">시계</a></li>
+           <li><a href="나의위치.html">실시간 현재 위치</a></li>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <section>
+        <details>
+            <summary>목록 </summary>
+            <h4>사회적 거리두기 시뮬레이션</h4>
+      
+            <p1>
+              <table>
+                <thead>
+                  <tr></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="30per_stop.html" target="new">
+                        <input
+                          type="button"
+                          src="30per_stop.html"
+                          value="코로나 확진 30% 시뮬레이션"
+                          alt="이미지 버튼"
+                          width="250"
+                          height="250"
+                      /></a>
+                    </td>
+                    <td>
+                      <a href="50per_stop.html" target="blank">
+                        <input
+                          type="button"
+                          src="50per_stop.html"
+                          value="코로나 확진 50% 시뮬레이션"
+                          alt="코로나"
+                          width="250"
+                          height="250"
+                      /></a>
+                    </td>
+                    <td>
+                      <a href="80per_stop.html" target="blank">
+                        <input
+                          type="button"
+                          src="80per_stop.html"
+                          value="코로나 확진 80% 시뮬레이션"
+                          alt="이미지 버튼"
+                          width="500"
+                          height="250"
+                      /></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </p1>
+            <h3>코로나 관련 사이트</h3>
+            <p2
+              ><table>
+                <thead>
+                  <tr></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="http://ncov.mohw.go.kr" target="new">
+                        <input
+                          type="button"
+                          src="30per_stop.html"
+                          value="코로나 환자 현황"
+                          alt="이미지 버튼"
+                          width="250"
+                          height="250"
+                      /></a>
+                    </td>
+                    <td>
+                      <a
+                        href="http://www.gimhae.go.kr/03360/00023/05945.web"
+                        target="blank"
+                      >
+                        <input
+                          type="button"
+                          src="50per_stop.html"
+                          value="김해 공적마스크 판매지도"
+                          alt="코로나"
+                          width="250"
+                          height="250"
+                      /></a>
+                    </td>
+                    <td>
+                      <a
+                        href="https://ijis.inje.ac.kr/covid19/main.aspx"
+                        target="blank"
+                      >
+                        <input
+                          type="button"
+                          src="https://ijis.inje.ac.kr/covid19/main.aspx"
+                          value="인제대학교 코로나 자가진단"
+                          alt="이미지 버튼"
+                          width="500"
+                          height="250"
+                      /></a>
+      
+                    </td>
+                  </tr>
+                </tbody></table
+            ></p2>
+           
+              </tbody></table
+          ></p2>
+          </details>
+        <figure>
+          <span> 
+             </span>
+        </figure>
+      </section>
+    </section>
+    <footer>
+      Copyright InjeUniversity Dron IOT Simulation Park by hm06
+    </footer>
+  </body>
+</html>
